@@ -176,11 +176,11 @@ export default function Traffic({ trafficData, weatherData, date, time }: Props)
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h1>Weather Forecast</h1>
                         {newWeatherData && newWeatherData.items && newWeatherData.items.length > 0 && (
                             <div className="card">
                                 <div className="card-body">
-                                    {/* <h5 className="card-title">{newWeatherData.items[0].timestamp}</h5> */}                                    
+                                    {/* <h5 className="card-title">{newWeatherData.items[0].timestamp}</h5> */}
+                                    <h3>Weather Forecast</h3>
                                     <select name="forecast" onChange={(e) => setFilterForecast(e.target.value)} className="form-control">
                                         {newWeatherData.items[0].forecasts.map((forecast) => (
                                             <option key={forecast.area}
@@ -205,6 +205,9 @@ export default function Traffic({ trafficData, weatherData, date, time }: Props)
                     </div>
                 </div>
                 <div className="row mt-5">
+                    <h3>Traffic Cameras</h3>
+                </div>
+                <div className="row mt-2">
                     <div className="col-6">
                         <input
                             type="date"
@@ -376,12 +379,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const res = await fetch(`https://api.data.gov.sg/v1/transport/traffic-images?date_time=${dateTime}`);
     const trafficData: TrafficData = await res.json();
 
-    // for (const item of trafficData.items) {
-    //     for (const camera of item.cameras) {
-    //         const locationName = await getLocationName(camera.location.latitude, camera.location.longitude);
-    //         camera.location.name = locationName;
-    //     }
-    // }
+    for (const item of trafficData.items) {
+        for (const camera of item.cameras) {
+            const locationName = await getLocationName(camera.location.latitude, camera.location.longitude);
+            camera.location.name = locationName;
+        }
+    }
 
 
     const response = await fetch('https://api.data.gov.sg/v1/environment/2-hour-weather-forecast');
