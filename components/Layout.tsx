@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 
 type LayoutProps = {
   children: ReactNode;
