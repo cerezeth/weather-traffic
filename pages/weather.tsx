@@ -285,7 +285,7 @@ export default function Traffic({ trafficData, weatherData, date, time }: Props)
                                         </div>
                                     </div>
                                     <div className="row mt-3">
-                                        <div className="col-6">
+                                        <div className="col-12">
                                             <select name="cameraid" value={selectedCamera ? selectedCamera : ""} onChange={(e) => setSelectedCamera(e.target.value)} className="form-control">
                                                 {cameras.map((camera, index) => (
                                                     // {filteredCameras.map((camera, index) => (
