@@ -8,6 +8,6 @@
 
 todos:
 - disable today's time that has not reached
-- try catch for apis
+- visuals for both time and date to be selected
 - store location names in database instead of calling api
 - shift logic to api on the backend
