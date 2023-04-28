@@ -11,12 +11,12 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>My Next.js App</title>
+        <title>Weather Traffic App</title>
       </Head>
       <nav>
         {/* Navigation links */}        
       </nav>
-      <main className="container p-5">{children}</main>
+      <main className="container p-1 mt-5">{children}</main>
       <footer>
         {/* Footer content */}
       </footer>
